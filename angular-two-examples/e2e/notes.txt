@@ -1,0 +1,5 @@
+Create moduel:
+ng generate module Course
+
+Create component:
+ng generate component course/CourseDetail
