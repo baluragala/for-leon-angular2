@@ -8,6 +8,7 @@ import { TemplateModule } from './template/template.module';
 import { CourseListComponent } from './course-list.component';
 import { CourseListItemComponent } from './course-list-item.component';
 import { AddCourseComponent } from './add-course.component'
+import { SharedModule } from './shared/shared.module'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddCourseComponent } from './add-course.component'
     BrowserModule,
     FormsModule,
     HttpModule,
-    TemplateModule
+    TemplateModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

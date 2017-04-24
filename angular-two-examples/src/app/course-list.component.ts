@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-course-list',
   template: `
-    <h4>
-      List Of Courses
-    </h4>
+    <ng-content></ng-content>
     <p>Enrolled Courses:{{enrolledCourses}}</p>
      <!--
-     <app-course-list-item [course]="courses[0]" (courseEnrolledEvent)="OnCourseEnrolled($event)" (courseClicked)="courseClikedListener($event)"></app-course-list-item>
-     <app-course-list-item [course]="courses[1]" (courseEnrolledEvent)="OnCourseEnrolled($event)" (courseClicked)="courseClikedListener($event)"></app-course-list-item>
+     <app-course-list-item [course]="courses[0]" (courseEnrolledEvent)="OnCourseEnrolled($event)" (courseClicked)="courseClikedListener($event)">THIS IS SOME THING</app-course-list-item>
+     <app-course-list-item [course]="courses[1]" (courseEnrolledEvent)="OnCourseEnrolled($event)" (courseClicked)="courseClikedListener($event)">THIS IS SOME THING</app-course-list-item>
      <app-add-course></app-add-course>
      -->
      <app-course-list-item *ngFor="let course of courses" [course]="course"
@@ -20,17 +18,20 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class CourseListComponent implements OnInit {
-  courses:[{title:string,author:string, isPublished:boolean}];
+
+  @Input() header:string;
+
+  courses:[{title:string,author:string, isPublished:boolean, rating:number, price:number}];
   enrolledCourses:string='No courses enrolled';
   constructor() { }
 
   ngOnInit() {
     this.courses = [
-      {title:'Learning Angular2',author:'baluragala', isPublished:true},
-      {title:'Learning React',author:'zeo', isPublished:true},
-       {title:'Learning Vue.js',author:'zeo', isPublished:false},
-        {title:'Learning Elm',author:'zeo', isPublished:true},
-         {title:'Learning ML',author:'zeo', isPublished:false}
+      {title:'Learning Angular2',author:'baluragala', isPublished:true,rating:3,price:500},
+      {title:'Learning React',author:'zeo', isPublished:true,rating:2, price:300},
+       {title:'Learning Vue.js',author:'zeo', isPublished:false,rating:0, price:600},
+        {title:'Learning Elm',author:'zeo', isPublished:true,rating:1,price:200},
+         {title:'Learning ML',author:'zeo', isPublished:false,rating:0, price:400}
     ]
   }
 
