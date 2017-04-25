@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,Inject } from '@angular/core';
 import {CourseService} from './course.service';
 import {Course2Service} from './course2.service';
 import {ICourse} from './ICourse';
@@ -30,8 +30,8 @@ export class CourseListComponent implements OnInit {
   enrolledCourses:string='No courses enrolled';
   
 
-  constructor(private courseService:CourseService) { 
-    console.log(courseService);
+  constructor(private courseService:CourseService, @Inject('AUTH_KEY') private authKey) { 
+    console.log(courseService,authKey);
   }
 
   ngOnInit() {

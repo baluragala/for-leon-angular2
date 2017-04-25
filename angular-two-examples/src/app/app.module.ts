@@ -29,11 +29,12 @@ import {AUTH_KEY} from './tokens'
     SharedModule
   ],
   providers: [
-    // //{provide:CourseService, useClass:Course2Service},
-    // {provide:'ENV',useValue:'PROD'},
-    // {provide:CourseService, 
-    //   useFactory:courseServiceFactory, 
-    //   deps:['ENV']}
+    //{provide:CourseService, useClass:Course2Service},
+    {provide:'AUTH_KEY',useValue:'E4qerfwe7^sdf%$wssws11'},
+    {provide:'ENV',useValue:'PROD'},
+    {provide:CourseService, 
+      useFactory:courseServiceFactory, 
+      deps:['ENV']}
     ],
   bootstrap: [AppComponent]
 })
