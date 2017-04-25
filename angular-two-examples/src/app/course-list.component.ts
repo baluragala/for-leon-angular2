@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {CourseService} from './course.service';
+import {Course2Service} from './course2.service';
+import {ICourse} from './ICourse';
+import { AUTH_KEY } from './tokens';
 
 @Component({
   selector: 'app-course-list',
@@ -15,24 +19,24 @@ import { Component, OnInit, Input } from '@angular/core';
      </app-course-list-item>
 
   `,
-  styles: []
+  styles: [],
+  viewProviders:[CourseService]
 })
 export class CourseListComponent implements OnInit {
 
   @Input() header:string;
 
-  courses:[{title:string,author:string, isPublished:boolean, rating:number, price:number}];
+  courses:Array<ICourse>;
   enrolledCourses:string='No courses enrolled';
-  constructor() { }
+  
+
+  constructor(private courseService:CourseService) { 
+    console.log(courseService);
+  }
 
   ngOnInit() {
-    this.courses = [
-      {title:'Learning Angular2',author:'baluragala', isPublished:true,rating:3,price:500},
-      {title:'Learning React',author:'zeo', isPublished:true,rating:2, price:300},
-       {title:'Learning Vue.js',author:'zeo', isPublished:false,rating:0, price:600},
-        {title:'Learning Elm',author:'zeo', isPublished:true,rating:1,price:200},
-         {title:'Learning ML',author:'zeo', isPublished:false,rating:0, price:400}
-    ]
+    //this.courseService = new Course2Service();
+    this.courses = this.courseService.getCourses();
   }
 
   OnCourseEnrolled(enrolledCourse){
