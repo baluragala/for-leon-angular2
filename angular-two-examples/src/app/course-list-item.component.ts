@@ -4,7 +4,7 @@ import { Component, OnInit,Input, SimpleChanges, EventEmitter,Output } from '@an
   selector: 'app-course-list-item',
   template: `
     <div class="course-item" (click)="OnCourseClicked()">
-      <p class="title">Course Title:{{course.title | uppercase }} <span>({{course.price | currency:'USD':true:'3.4' }})</span></p>
+      <p class="title"><a [routerLink]="[course.id]"> Course Title:{{course.title | uppercase }} <span>({{course.price | currency:'USD':true:'3.4' }})</span></a></p>
       <p class="title">Course Author:{{course.author}}</p>
       <button *ngIf="course.isPublished===true" (click)="OnCourseEnrolled(course)">Enroll</button>
       <label *ngIf="course.isPublished===false" [ngStyle]="{'backgroundColor':'orange'}"> Coming Soon</label>

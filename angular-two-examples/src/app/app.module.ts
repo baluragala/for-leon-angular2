@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, OpaqueToken } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { RouterModule} from '@angular/router'
 import { AppComponent } from './app.component';
 import { TemplateModule } from './template/template.module';
 import { CourseListComponent } from './course-list.component';
@@ -12,26 +12,38 @@ import { SharedModule } from './shared/shared.module'
 import { CourseService } from './course.service'
 import { Course2Service } from './course2.service'
 import {ICourseService} from './ICourseService'
-import {AUTH_KEY} from './tokens'
+import {AUTH_KEY} from './tokens';
+import { AddAuthorComponent } from './add-author.component';
+import { CourseDetailComponent } from './course-detail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseListComponent,
     CourseListItemComponent,
-    AddCourseComponent
+    AddCourseComponent,
+    AddAuthorComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     TemplateModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {path:'courses',component:CourseListComponent},
+      {path:'add-course',component:AddCourseComponent},
+      {path:'add-author',component:AddAuthorComponent},
+      {path:'courses/:courseId', component:CourseDetailComponent},
+      {path:'**',redirectTo:'courses', pathMatch:'full'}
+    ])
   ],
   providers: [
     //{provide:CourseService, useClass:Course2Service},
     {provide:'AUTH_KEY',useValue:'E4qerfwe7^sdf%$wssws11'},
-    {provide:'ENV',useValue:'PROD'},
+    {provide:'ENV',useValue:'DEV'},
     {provide:CourseService, 
       useFactory:courseServiceFactory, 
       deps:['ENV']}

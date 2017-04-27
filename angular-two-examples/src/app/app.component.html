@@ -1,13 +1,22 @@
-<h1>
-  {{title}}
-</h1>
+<nav class='navbar navbar-default'>
+           <div class='container-fluid'>
+               <a class='navbar-brand'>{{pageTitle}}</a>
+               <ul class='nav navbar-nav'>
+                   <li><a [routerLink]="['/home']" routerLinkActive="active">Home</a></li>
+                   <li><a [routerLink]="['/courses']" routerLinkActive="active">Courses</a></li>
+                   <li><a [routerLink]="['/add-course']" routerLinkActive="active">Add Course</a></li>
+                   <li><a [routerLink]="['/add-author']" routerLinkActive="active">Add Author</a></li>
+               </ul>
+           </div>
+      </nav>
+
 <!--<app-template-synatx></app-template-synatx>-->
-<app-course-list>
+<!--<app-course-list>
   <div>
     <h1 style="color:mediumvioletred">Courses Offered</h1>
     <p>Courses are taught online</p>
   </div>
-</app-course-list>
+</app-course-list>-->
 
 <!-- pipes examples -->
 
@@ -25,3 +34,11 @@
         {{item}}
       </card>
 </div>-->
+
+<!-- template driven form-->
+<!--<app-add-course></app-add-course>-->
+
+<!-- reactive form-->
+
+<!--<app-add-author></app-add-author>-->
+<router-outlet></router-outlet>
