@@ -1,5 +1,6 @@
 import { Component, OnInit,Input, SimpleChanges, EventEmitter,Output } from '@angular/core';
-
+import {Router} from '@angular/router'
+import { AuthService } from './auth.service'
 @Component({
   selector: 'app-course-list-item',
   template: `
@@ -27,7 +28,7 @@ import { Component, OnInit,Input, SimpleChanges, EventEmitter,Output } from '@an
 })
 export class CourseListItemComponent implements OnInit {
 
-  @Input() course:{title:string,author:string,isPublished:boolean};
+  @Input() course:{id:number,title:string,author:string,isPublished:boolean};
   @Input() title:string;
   @Output() courseEnrolledEvent:EventEmitter<any>=new EventEmitter();
   @Output() courseClicked:EventEmitter<any>=new EventEmitter();
@@ -42,7 +43,9 @@ export class CourseListItemComponent implements OnInit {
     console.log(changes);
   }
 
-  constructor() { }
+  constructor(private router:Router, private authService: AuthService) { 
+    console.log(this.router);
+  }
 
   ngOnInit() {
     if(this.course.isPublished === false){
@@ -57,6 +60,8 @@ export class CourseListItemComponent implements OnInit {
  OnCourseEnrolled(selectedCourse){
   console.log(selectedCourse);
   this.courseEnrolledEvent.emit(selectedCourse);
+  this.router.navigate(['courses',this.course.id,'enroll'])
+  //   courses/1/enroll
  }
 
  OnCourseClicked(){

@@ -14,7 +14,14 @@ import { Course2Service } from './course2.service'
 import {ICourseService} from './ICourseService'
 import {AUTH_KEY} from './tokens';
 import { AddAuthorComponent } from './add-author.component';
-import { CourseDetailComponent } from './course-detail.component'
+import { CourseDetailComponent } from './course-detail.component';
+import { EnrollComponent } from './enroll.component'
+import { AuthService } from './auth.service'
+import {EnrollActivateGuardService} from './enroll-activate-guard.service'
+import { PartialFormDeactivateGuardService} from './partial-form-deactivate-guard.service';
+import { CoursesIndexComponent } from './courses-index.component'
+import { OffersModule} from './offers/offers.module'
+import {APP_ROUTES} from './app.routes';
 
 @NgModule({
   declarations: [
@@ -23,7 +30,9 @@ import { CourseDetailComponent } from './course-detail.component'
     CourseListItemComponent,
     AddCourseComponent,
     AddAuthorComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    EnrollComponent,
+    CoursesIndexComponent
   ],
   imports: [
     BrowserModule,
@@ -32,15 +41,10 @@ import { CourseDetailComponent } from './course-detail.component'
     TemplateModule,
     SharedModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      {path:'courses',component:CourseListComponent},
-      {path:'add-course',component:AddCourseComponent},
-      {path:'add-author',component:AddAuthorComponent},
-      {path:'courses/:courseId', component:CourseDetailComponent},
-      {path:'**',redirectTo:'courses', pathMatch:'full'}
-    ])
+    RouterModule.forRoot(APP_ROUTES),
+    OffersModule
   ],
-  providers: [
+  providers: [AuthService,EnrollActivateGuardService,PartialFormDeactivateGuardService,
     //{provide:CourseService, useClass:Course2Service},
     {provide:'AUTH_KEY',useValue:'E4qerfwe7^sdf%$wssws11'},
     {provide:'ENV',useValue:'DEV'},
