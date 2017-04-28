@@ -22,6 +22,10 @@ import { PartialFormDeactivateGuardService} from './partial-form-deactivate-guar
 import { CoursesIndexComponent } from './courses-index.component'
 import { OffersModule} from './offers/offers.module'
 import {APP_ROUTES} from './app.routes';
+import { AsynObservablePipeComponent } from './asyn-observable-pipe.component';
+import { AsyncPromisePipeComponent } from './async-promise-pipe.component';
+import { GithubUsersComponent } from './github-users.component';
+import { GithubService } from './github.service'
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import {APP_ROUTES} from './app.routes';
     AddAuthorComponent,
     CourseDetailComponent,
     EnrollComponent,
-    CoursesIndexComponent
+    CoursesIndexComponent,
+    AsynObservablePipeComponent,
+    AsyncPromisePipeComponent,
+    GithubUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,7 @@ import {APP_ROUTES} from './app.routes';
     OffersModule
   ],
   providers: [AuthService,EnrollActivateGuardService,PartialFormDeactivateGuardService,
+  GithubService,
     //{provide:CourseService, useClass:Course2Service},
     {provide:'AUTH_KEY',useValue:'E4qerfwe7^sdf%$wssws11'},
     {provide:'ENV',useValue:'DEV'},
