@@ -1,0 +1,96 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "Learning React",
+      "author": "zeo1",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "authors": [
+    {
+      "id": 1,
+      "firstName": "Zeo1",
+      "lastName": "Zeo2",
+      "address": {
+        "street": "123 ABC ",
+        "city": "NY",
+        "state": "NY"
+      }
+    },
+    {
+      "firstName": "Jhon",
+      "lastName": "Smith",
+      "address": {
+        "street": "123 ABC ",
+        "city": "NY",
+        "state": "NY"
+      },
+      "id": 2
+    },
+    {
+      "firstName": "Balakrishna",
+      "lastName": "Ragala",
+      "address": {
+        "street": "132 chruch street",
+        "city": "NY",
+        "state": "NY"
+      },
+      "id": 3
+    },
+    {
+      "firstName": "Calrie",
+      "lastName": "Thomson",
+      "address": {
+        "street": "132 chruch street",
+        "city": "AT",
+        "state": "AT"
+      },
+      "id": 4
+    },
+    {
+      "firstName": "Calrie1",
+      "lastName": "Thomson1",
+      "address": {
+        "street": "132 chruch street",
+        "city": "AT",
+        "state": "AT"
+      },
+      "id": 5
+    },
+    {
+      "firstName": "Balakrishna1",
+      "lastName": "Ragala1",
+      "address": {
+        "street": "132 chruch street",
+        "city": "NY",
+        "state": "NY"
+      },
+      "id": 6
+    },
+    {
+      "firstName": "Balakrishna11",
+      "lastName": "Ragala11",
+      "address": {
+        "street": "132 chruch street",
+        "city": "NY",
+        "state": "NY"
+      },
+      "id": 7
+    }
+  ]
+}

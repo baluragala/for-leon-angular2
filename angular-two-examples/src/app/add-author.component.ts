@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms'
+import {Http,Headers, RequestOptions} from '@angular/http';
 
 @Component({
   selector: 'app-add-author',
@@ -11,7 +12,7 @@ export class AddAuthorComponent implements OnInit {
   author={firstName:'Balakrishna',lastName:'Ragala',address:{street:'132 chruch street',city:'NY',state:'NY'}} ;
 
   authorForm:FormGroup;
-  constructor() { }
+  constructor(private http:Http) { }
 
   ngOnInit() {
     this.authorForm = new FormGroup({
@@ -28,7 +29,12 @@ export class AddAuthorComponent implements OnInit {
   }
 
   OnSubmit(){
-    console.log('')
+    console.log(this.authorForm.value);
+
+    let headers = new Headers({'Content-Type':'application/json','X-App-Id':'1002'})
+    let options = new RequestOptions({headers:headers});
+    this.http.post('http://localhost:3000/authors',this.authorForm.value,options)
+    .subscribe(r=>console.log(r.json()))
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input, SimpleChanges, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit,Input, SimpleChanges, EventEmitter,Output,ViewEncapsulation } from '@angular/core';
 import {Router} from '@angular/router'
 import { AuthService } from './auth.service'
 @Component({
@@ -24,7 +24,8 @@ import { AuthService } from './auth.service'
   styles: [`.course-item{
     border: 1px solid green
   }
-  `, `.title{ font-weight:bold; text-decoration:underline}`,`.coming-soon { color:orange}`,`.unpublished{color:red}`]
+  `, `.title{ font-weight:bold; text-decoration:underline}`,`.coming-soon { color:orange}`,`.unpublished{color:red}`],
+encapsulation: ViewEncapsulation.Native
 })
 export class CourseListItemComponent implements OnInit {
 

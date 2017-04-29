@@ -5,3 +5,10 @@ h1{
 .active {
     color:red!important
 }
+.course-item{
+    border: 1px solid green
+  }
+
+.title{ font-weight:bold; text-decoration:underline}
+.coming-soon { color:orange}
+.unpublished{color:red}

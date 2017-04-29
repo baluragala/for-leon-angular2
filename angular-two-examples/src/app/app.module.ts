@@ -25,7 +25,8 @@ import {APP_ROUTES} from './app.routes';
 import { AsynObservablePipeComponent } from './asyn-observable-pipe.component';
 import { AsyncPromisePipeComponent } from './async-promise-pipe.component';
 import { GithubUsersComponent } from './github-users.component';
-import { GithubService } from './github.service'
+import { GithubService } from './github.service';
+import { AddPostComponent } from './add-post.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { GithubService } from './github.service'
     CoursesIndexComponent,
     AsynObservablePipeComponent,
     AsyncPromisePipeComponent,
-    GithubUsersComponent
+    GithubUsersComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
